@@ -6,7 +6,7 @@ const Header = () => (
     <nav className="navbar navbar-default">
       <IndexLink to="/" activeClassName="active">Home</IndexLink>
       {" | "}
-      <Link to="movies" activeClassName="active">Movies</Link>
+      <Link to="films" activeClassName="active">Films</Link>
       {" | "}
       <Link to="people" activeClassName="active">People</Link>
       {" | "}
