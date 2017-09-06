@@ -5,7 +5,7 @@ import * as types from '../actions/rootActionsTypes';
 export function* findAllFilms() {
   try {
     const films = yield call(ghibliApi.findAll,'films');
-    console.log('saga got : ',films);
+
     yield [
       put({ type: types.FIND_ALL_FILMS_SUCCESS, films }),
       put({ type: types.SELECTED_FILM, film: films[0] })

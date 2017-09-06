@@ -6,7 +6,6 @@ export default function (state = initialState.films, action) {
     case types.SELECTED_FILM:
       return { ...state, selectedFilm: action.film };
     case types.FIND_ALL_FILMS_SUCCESS:
-      console.log('reducers : ', action.films);
       return {...state, films : action.films}
     default:
       return state;

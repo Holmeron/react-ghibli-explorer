@@ -7,7 +7,6 @@ export const selectFilmAction = (film) => ({
 });
 
 // find all films
-export const findAllFilms = (entity) => ({
-  type: types.FIND_ALL_FILMS,
-  entity
+export const findAllFilms = () => ({
+  type: types.FIND_ALL_FILMS
 });

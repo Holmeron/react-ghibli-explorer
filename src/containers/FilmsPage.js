@@ -10,21 +10,32 @@ class FilmsPage extends Component {
     this.props.dispatch(findAllFilms());
   }
   componentDidUpdate() {
-     const { state } = this.props;
-     console.log('update : ', state);
+     const { films } = this.props;
    }
   render() {
-    const { state } = this.props;
-    console.log(state, 'state');
+    const { films } = this.props;
 
     return (
-      <div></div>
+      <div>
+      {
+        films ?
+        films.map((film, index) => {
+          return (
+            <p key={index}>
+            {film.title}
+            </p>
+          )
+        })
+        :
+        null
+      }
+      </div>
     )
   }
 }
 
-const mapStateToProps = ({ state }) => ({
-  state: state
+const mapStateToProps = ({ films }) => ({
+  films : films.films
 });
 
 // connect method from react-router connects the component with redux store

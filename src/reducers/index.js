@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
-import film from './filmReducer';
+import films from './filmReducer';
 import species from './speciesReducer';
 
 const rootReducer = combineReducers({
-  film,
+  films,
   species
 });
 
