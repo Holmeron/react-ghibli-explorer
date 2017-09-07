@@ -4,27 +4,34 @@ const webpack = require('webpack');
 module.exports = {
     entry: ["./src/index.js"],
     output: {
-        path: path.resolve(__dirname, "build"),
-        filename: "bundle.js"
+        path: path.resolve(__dirname, "dist"),
+        publicPath: "/assets/",
+        filename: 'build.js'
     },
     module: {
-        loaders: [
+        rules: [
             {
                 test: /\.scss$/,
-                loaders: [ 'style-loader', 'css-loader', 'sass-loader' ]
+                use: [
+                   { loader : 'style-loader'},
+                   { loader : 'css-loader'},
+                   { loader : 'sass-loader'}
+                 ]
             },
             {
               test: /\.js$/,
               exclude: /node_modules/,
-              loader: "babel-loader",
-              query:
-                  {
-                    presets:['react','es2015','stage-2']
-                  }
+              use: [{
+                loader :'babel-loader',
+                query:{
+                      presets:['react','es2015','stage-2']
+                }
+              }],
+
             },
             {
               test: /\.(eot|svg|ttf|woff|woff2)$/,
-              loader: "file-loader"
+              use: "file-loader"
             }
         ]
     }
