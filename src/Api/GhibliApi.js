@@ -6,5 +6,11 @@ export const ghibliApi = {
     .then(response => {
       return response.json()
     })
+  },
+  findSingle(entity,id){
+    return fetch(API_ENDPOINT+'/'+entity+'/'+id)
+    .then(response => {
+      return response.json()
+    })
   }
 }

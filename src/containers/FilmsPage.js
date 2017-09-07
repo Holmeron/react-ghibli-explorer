@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { findAllFilms, findAllVehicles } from '../actions/apiActions';
+import { findAllFilms } from '../actions/apiActions';
 
 import EntityCard from '../components/EntityCard/EntityCard';
 
@@ -20,9 +20,9 @@ class FilmsPage extends Component {
       <div>
         {
           films ?
-          films.map((film, index) =>
-            <EntityCard name={film.title} key={index} />
-          )
+          films.map((film, index) =>{
+            return(<EntityCard name={film.title} link={'film/'+film.id} key={index} />)
+          })
           :
           null
         }

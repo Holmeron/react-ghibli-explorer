@@ -1,12 +1,15 @@
 import * as types from './rootActionsTypes';
 
-
-
 /** FILMS **/
 
 // find all films
 export const findAllFilms = () => ({
   type: types.FIND_ALL_FILMS
+});
+// find film
+export const findFilm = (filmId) => ({
+  type: types.FIND_FILM,
+  filmId
 });
 // select a film
 export const selectFilmAction = (film) => ({
