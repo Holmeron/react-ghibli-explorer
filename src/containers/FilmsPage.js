@@ -15,7 +15,6 @@ class FilmsPage extends Component {
    }
   render() {
     const { films, vehicles } = this.props;
-    console.log('VEHICLES : ',vehicles);
 
     return (
       <div>

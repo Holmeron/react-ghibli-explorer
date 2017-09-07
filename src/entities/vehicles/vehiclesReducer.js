@@ -1,5 +1,5 @@
-import initialState from './initialState';
-import * as types from '../actions/rootActionsTypes';
+import initialState from '../../reducers/initialState';
+import * as types from '../../actions/rootActionsTypes';
 
 export default function (state = initialState.vehicles, action) {
   switch (action.type) {
