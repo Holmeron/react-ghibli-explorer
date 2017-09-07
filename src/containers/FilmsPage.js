@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { findAllFilms } from '../actions/apiActions';
+import { findAllFilms, findAllVehicles } from '../actions/apiActions';
 // import { ghibliApi } from '../Api/GhibliApi';
 
 class FilmsPage extends Component {
@@ -8,34 +8,53 @@ class FilmsPage extends Component {
  componentDidMount() {
     // ghibliApi.getAll('films').then(data => console.log('data : ',data));
     this.props.dispatch(findAllFilms());
+    this.props.dispatch(findAllVehicles());
   }
   componentDidUpdate() {
      const { films } = this.props;
    }
   render() {
-    const { films } = this.props;
+    const { films, vehicles } = this.props;
+    console.log('VEHICLES : ',vehicles);
 
     return (
       <div>
-      {
-        films ?
-        films.map((film, index) => {
-          return (
-            <p key={index}>
-            {film.title}
-            </p>
-          )
-        })
-        :
-        null
-      }
+        <div className="col-md-6">
+        {
+          films ?
+          films.map((film, index) => {
+            return (
+              <p key={index}>
+              {film.title}
+              </p>
+            )
+          })
+          :
+          null
+        }
+        </div>
+        <div className="col-md-6">
+        {
+          vehicles ?
+          vehicles.map((vehicle, index) => {
+            return (
+              <p key={index}>
+              {vehicle.name}
+              </p>
+            )
+          })
+          :
+          null
+        }
+        </div>
       </div>
     )
   }
 }
 
-const mapStateToProps = ({ films }) => ({
-  films : films.films
+const mapStateToProps = ({ films, vehicles }) => ({
+  films : films.films,
+  vehicles : vehicles.vehicles
 });
 
 // connect method from react-router connects the component with redux store
