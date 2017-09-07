@@ -1,7 +1,10 @@
 import { takeLatest } from 'redux-saga/effects';
-import { findAllFilms } from './findAllFilmsSaga';
+import * as ApiSaga from './ApiSaga';
 import * as types from '../actions/rootActionsTypes';
 
-export default function* watchFindAllFilms() {
-  yield takeLatest(types.FIND_ALL_FILMS, findAllFilms);
+export function* watchFindAllFilms() {
+  yield takeLatest(types.FIND_ALL_FILMS, ApiSaga.findAllFilms);
+}
+export function* watchFindAllVehicles() {
+  yield takeLatest(types.FIND_ALL_VEHICLES, ApiSaga.findAllVehicles);
 }
