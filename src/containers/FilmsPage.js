@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { findAllFilms, findAllVehicles } from '../actions/apiActions';
-// import { ghibliApi } from '../Api/GhibliApi';
+
+import EntityCard from '../components/EntityCard/EntityCard';
 
 class FilmsPage extends Component {
 
@@ -13,29 +14,24 @@ class FilmsPage extends Component {
    }
   render() {
     const { films } = this.props;
+    console.log('films : ',films);
 
     return (
       <div>
-        <div className="col-md-6">
         {
           films ?
-          films.map((film, index) => {
-            return (
-              <p key={index}>
-              {film.title}
-              </p>
-            )
-          })
+          films.map((film, index) =>
+            <EntityCard name={film.title} key={index} />
+          )
           :
           null
         }
-        </div>
       </div>
     )
   }
 }
 
-const mapStateToProps = ({ films, vehicles }) => ({
+const mapStateToProps = ({ films }) => ({
   films : films.films
 });
 
