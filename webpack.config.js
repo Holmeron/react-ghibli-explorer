@@ -4,14 +4,16 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-    entry: {
-      javascript : path.resolve(__dirname, 'src/index.js')
-    },
+    entry: [
+      path.resolve(__dirname, 'src/index.js'),
+      path.resolve(__dirname, 'src/styles/main.scss')
+    ],
     output: {
         path: path.resolve(__dirname, 'dist'),
-        publicPath: '/dist/',
+        publicPath: '',
         filename: 'build.js'
     },
+    context: path.resolve(__dirname, 'src'),
     module: {
         rules: [
             {
@@ -28,21 +30,20 @@ module.exports = {
               }],
 
             },{
-              test: /\.css$/,
-              use:[{
-                loader: 'style-loader'
-              },{
-                loader: 'css-loader'
-              }]
-            },{
                 test: /\.scss$/,
+                exclude: /node_modules/,
                 use: ExtractTextPlugin.extract({
                   fallback: 'style-loader',
-                  use: [{
-                    loader:'css-loader'
-                  },{
-                    loader:'sass-loader'
-                  }]
+                  use: [
+                    'css-loader',
+                    {
+                      loader: 'sass-loader',
+                      query: {
+                        sourceMap: false,
+                      },
+                    },
+                  ],
+                  publicPath: '../'
                 })
             },
             {
@@ -52,9 +53,6 @@ module.exports = {
         ],
     },
     plugins: [
-      new ExtractTextPlugin('build.css'),
-      new CopyWebpackPlugin([
-            { from: 'public/index.html', to: 'index.html' }
-      ])
+      new ExtractTextPlugin({ filename: './styles/style.css', disable: false, allChunks: true })
     ]
 };
