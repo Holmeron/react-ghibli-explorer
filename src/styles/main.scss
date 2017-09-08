@@ -1,8 +1,19 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import "~bootstrap-sass/assets/stylesheets/_bootstrap";
 
+@import './colors.scss';
 @import './icons.scss';
+@import './backgrounds.scss';
 
+body{
+  @extend .cogs;
+}
+.navbar-default{
+  background: rgba(200,200,250,.7);
+  border: dashed 2px grey;
+  color: white;
+  border-style: dashed;
+}
 .helper__flex-list{
   display: flex;
   flex-wrap: wrap;
@@ -16,9 +27,40 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
   }
 }
 
+.flex-reverse{
+  flex-direction: row-reverse;
+}
+
 .helper__details-page{
   text-align: left;
   h2{
     font-size: 2em;
+  }
+  h2,p{
+    border: 2px solid grey;
+    border-radius: 10px;
+    margin: 1%;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+  .gb-icon{
+    flex-grow: .5;
+  }
+  .helper__details-page_title{
+    @extend .leaves;
+  }
+  .helper__details-page_description{
+    @extend .skulls;
+  }
+  .helper__details-page_comment{
+    @extend .curtains;
+  }
+  .helper__details-page_date{
+    @extend .groove;
+  }
+  .helper__details-page_score{
+    @extend .dominos;
   }
 }

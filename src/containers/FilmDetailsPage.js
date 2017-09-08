@@ -16,13 +16,12 @@ class FilmsPage extends Component {
 
         film ?
         <div className="helper__details-page film-details">
-        <i className="gb-icon add-star"></i>
-          <h2>{film.title}</h2>
-          <p>{film.description}</p>
-          <p>Directed by : {film.director}</p>
-          <p>Produced by : {film.producer}</p>
-          <p>Released : {film.release_date}</p>
-          <p className="icons__rotten-tomato">{film.rt_score}</p>
+          <h2 className="helper__details-page_title"><i className="gb-icon info-popup"></i>{film.title}</h2>
+          <p className="helper__details-page_description"><i className="gb-icon document"></i>{film.description}</p>
+          <p className="helper__details-page_comment"><i className="gb-icon comment"></i>Directed by : {film.director}</p>
+          <p className="helper__details-page_comment flex-reverse"><i className="gb-icon reverse comment"></i>Produced by : {film.producer}</p>
+          <p className="helper__details-page_date">Released : {film.release_date}</p>
+          <p className="helper__details-page_score icons__rotten-tomato">Rottent Tomato score :{film.rt_score}</p>
         </div>
         :
         null
