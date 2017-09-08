@@ -1,6 +1,24 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import "~bootstrap-sass/assets/stylesheets/_bootstrap";
 
-.jumbotron{
-  background: red !important;
+@import './icons.scss';
+
+.helper__flex-list{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  > div{
+    width: 15vw;
+    min-width: 125px;
+    border: 1px solid #ccc;
+    height: 150px;
+    margin: .5vw;
+  }
+}
+
+.helper__details-page{
+  text-align: left;
+  h2{
+    font-size: 2em;
+  }
 }
