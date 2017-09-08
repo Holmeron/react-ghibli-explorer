@@ -17,7 +17,7 @@ class FilmsPage extends Component {
     console.log('films : ',films);
 
     return (
-      <div>
+      <div className="helper__flex-list">
         {
           films ?
           films.map((film, index) =>{

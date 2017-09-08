@@ -7,7 +7,7 @@ const HomePage = () => (
     <h1 className="lead">Ghibli Explorer</h1>
     <h4 className="subtitle">made with react</h4>
     <div>
-      <Link to="library">
+      <Link to="films">
         <button className="btn btn-lg btn-primary"> Start browsing movies</button>
       </Link>
     </div>

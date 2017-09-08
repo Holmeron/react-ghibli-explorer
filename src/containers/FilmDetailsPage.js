@@ -13,15 +13,16 @@ class FilmsPage extends Component {
     const { film } = this.props;
 
     return (
-      
+
         film ?
-        <div>
-          <p>{film.title}</p>
+        <div className="helper__details-page film-details">
+        <i className="gb-icon add-star"></i>
+          <h2>{film.title}</h2>
           <p>{film.description}</p>
-          <p>{film.director}</p>
-          <p>{film.producer}</p>
-          <p>{film.release_date}</p>
-          <p>{film.rt_score}</p>
+          <p>Directed by : {film.director}</p>
+          <p>Produced by : {film.producer}</p>
+          <p>Released : {film.release_date}</p>
+          <p className="icons__rotten-tomato">{film.rt_score}</p>
         </div>
         :
         null

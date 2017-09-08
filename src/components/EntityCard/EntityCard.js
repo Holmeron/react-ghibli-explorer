@@ -9,7 +9,7 @@ const EntityCard = ({name,link})=>(
     <div className="card-body">
       <h4 className="card-title">{name}</h4>
       <p className="card-text"></p>
-      <Link to={link}>View Details</Link>
+      <Link to={link} className="btn btn-primary">View Details</Link>
     </div>
   </div>
 )
