@@ -1,31 +1,60 @@
 const path = require('path');
 const webpack = require('webpack');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-    entry: ["./src/index.js"],
+    entry: {
+      javascript : path.resolve(__dirname, 'src/index.js')
+    },
     output: {
-        path: path.resolve(__dirname, "build"),
-        filename: "bundle.js"
+        path: path.resolve(__dirname, 'dist'),
+        publicPath: '/dist/',
+        filename: 'build.js'
     },
     module: {
-        loaders: [
+        rules: [
             {
-                test: /\.scss$/,
-                loaders: [ 'style-loader', 'css-loader', 'sass-loader' ]
-            },
-            {
+              test: /\.html$/,
+              use: 'file-loader'
+            },{
               test: /\.js$/,
               exclude: /node_modules/,
-              loader: "babel-loader",
-              query:
-                  {
-                    presets:['react','es2015','stage-2']
-                  }
+              use: [{
+                loader :'babel-loader',
+                query:{
+                      presets:['react','es2015','stage-2']
+                }
+              }],
+
+            },{
+              test: /\.css$/,
+              use:[{
+                loader: 'style-loader'
+              },{
+                loader: 'css-loader'
+              }]
+            },{
+                test: /\.scss$/,
+                use: ExtractTextPlugin.extract({
+                  fallback: 'style-loader',
+                  use: [{
+                    loader:'css-loader'
+                  },{
+                    loader:'sass-loader'
+                  }]
+                })
             },
             {
               test: /\.(eot|svg|ttf|woff|woff2)$/,
-              loader: "file-loader"
+              use: 'file-loader'
             }
-        ]
-    }
+        ],
+    },
+    plugins: [
+      new ExtractTextPlugin('build.css'),
+      new CopyWebpackPlugin([
+            { from: 'public/index.html', to: 'index.html' }
+      ])
+    ]
 };
