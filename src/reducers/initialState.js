@@ -5,5 +5,6 @@ export default{
   species : [],
   location : [],
   terrain : [],
-  vehicles : []
+  vehicles : [],
+  baseEntity : {}
 }

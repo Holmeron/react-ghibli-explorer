@@ -1,5 +1,11 @@
 import * as types from './rootActionsTypes';
 
+// find sentity by url
+export const findEntityFromUrl = (url) => ({
+  type: types.FIND_ENTITY_URL,
+  url
+});
+
 /** FILMS **/
 
 // find all films
