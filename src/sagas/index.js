@@ -1,6 +1,16 @@
 import { fork } from 'redux-saga/effects';
-import {watchFindAllFilms,watchFindAllVehicles} from './watcher';
+import {
+  watchFindAllFilms,
+  watchFindFilm,
+  watchFindAllVehicles,
+  watchFindByUrl
+} from './watcher';
 
 export default function* startForman() {
-  yield [fork(watchFindAllFilms),fork(watchFindAllVehicles)];
+  yield [
+    fork(watchFindAllFilms),
+    fork(watchFindFilm),
+    fork(watchFindAllVehicles),
+    fork(watchFindByUrl)
+  ];
 }

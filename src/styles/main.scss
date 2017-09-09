@@ -1,6 +1,88 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import "~bootstrap-sass/assets/stylesheets/_bootstrap";
 
-.jumbotron{
-  background: red !important;
+@import './colors.scss';
+@import './icons.scss';
+@import './backgrounds.scss';
+
+body{
+  @extend .cogs;
+}
+.navbar-default{
+  background: rgba(200,200,250,.7);
+  border: dashed 2px grey;
+  color: white;
+  border-style: dashed;
+}
+.flex-reverse{
+  flex-direction: row-reverse;
+}
+ul{
+  list-style: none;
+  padding: 0;
+}
+.helper__flex-list{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  > div{
+    width: 15vw;
+    min-width: 125px;
+    border: 1px solid #ccc;
+    height: 150px;
+    margin: .5vw;
+  }
+}
+
+
+.helper__details-page{
+  $font-size : 3vw;
+  text-align: left;
+  color : $secondary-color;
+  font-size: $font-size;
+  h2,p, .helper__details-page_related > div{
+    border: 2px solid grey;
+    border-radius: 10px;
+    margin: 1%;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .gb-icon{
+    flex-grow: .5;
+  }
+  h4{
+    font-size: $font-size;
+  }
+  .helper__details-page_title{
+    @extend .leaves;
+    font-size: $font-size+1;
+    text-transform: uppercase;
+  }
+  .helper__details-page_description{
+    @extend .temple;
+    font-size: $font-size - 1;
+  }
+  .helper__details-page_comment{
+    @extend .clouds;
+  }
+  .helper__details-page_date{
+    @extend .topography;
+  }
+  .helper__details-page_score{
+    @extend .dominos;
+  }
+  .helper__details-page_related{
+
+    >div{
+      ul{
+        flex-grow: 1;
+      }
+      h4{
+        flex-grow: 0.5;
+      }
+    }
+  }
 }
