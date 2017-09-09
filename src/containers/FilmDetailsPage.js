@@ -13,7 +13,7 @@ class FilmsDetailsPage extends Component {
 
   render() {
     const { film } = this.props;
-
+s
     return (
 
         film ?

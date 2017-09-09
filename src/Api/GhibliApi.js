@@ -1,6 +1,6 @@
 import apiService from '../services/apiService';
 
-const API_ENDPOINT = 'https://ghibliapi.herokuapp.com';
+const API_ENDPOINT = apiService.getEndpoint();
 
 // api methods
 export const ghibliApi = {
