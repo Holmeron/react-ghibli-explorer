@@ -32,10 +32,10 @@ body{
 }
 
 .helper__details-page{
+  $font-size : 2vw;
   text-align: left;
-  h2{
-    font-size: 2em;
-  }
+  color : $secondary-color;
+  font-size: $font-size;
   h2,p{
     border: 2px solid grey;
     border-radius: 10px;
@@ -43,22 +43,26 @@ body{
     padding: 20px;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
+    text-align: center;
   }
   .gb-icon{
     flex-grow: .5;
   }
   .helper__details-page_title{
     @extend .leaves;
+    font-size: $font-size+2;
+    text-transform: uppercase;
   }
   .helper__details-page_description{
-    @extend .skulls;
+    @extend .temple;
   }
   .helper__details-page_comment{
-    @extend .curtains;
+    @extend .clouds;
+    font-size : $font-size+1;
   }
   .helper__details-page_date{
-    @extend .groove;
+    @extend .topography;
   }
   .helper__details-page_score{
     @extend .dominos;
