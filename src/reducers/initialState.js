@@ -4,7 +4,6 @@ export default{
   people : [],
   species : [],
   location : [],
-  terrain : [],
   vehicles : [],
   baseEntity : {}
 }

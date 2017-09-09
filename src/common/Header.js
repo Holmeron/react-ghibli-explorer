@@ -20,7 +20,6 @@ const Header = () => (
               <li><Link to="people" activeClassName="active">People</Link></li>
               <li><Link to="species" activeClassName="active">Species</Link></li>
               <li><Link to="locations" activeClassName="active">Locations</Link></li>
-              <li><Link to="terrain" activeClassName="active">Terrain</Link></li>
               <li><Link to="vehicles" activeClassName="active">Vehicles</Link></li>
             </ul>
             <ul className="nav navbar-nav navbar-right">

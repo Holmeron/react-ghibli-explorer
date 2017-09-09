@@ -14,6 +14,13 @@ body{
   color: white;
   border-style: dashed;
 }
+.flex-reverse{
+  flex-direction: row-reverse;
+}
+ul{
+  list-style: none;
+  padding: 0;
+}
 .helper__flex-list{
   display: flex;
   flex-wrap: wrap;
@@ -27,16 +34,13 @@ body{
   }
 }
 
-.flex-reverse{
-  flex-direction: row-reverse;
-}
 
 .helper__details-page{
-  $font-size : 2vw;
+  $font-size : 3vw;
   text-align: left;
   color : $secondary-color;
   font-size: $font-size;
-  h2,p{
+  h2,p, .helper__details-page_related > div{
     border: 2px solid grey;
     border-radius: 10px;
     margin: 1%;
@@ -49,22 +53,36 @@ body{
   .gb-icon{
     flex-grow: .5;
   }
+  h4{
+    font-size: $font-size;
+  }
   .helper__details-page_title{
     @extend .leaves;
-    font-size: $font-size+2;
+    font-size: $font-size+1;
     text-transform: uppercase;
   }
   .helper__details-page_description{
     @extend .temple;
+    font-size: $font-size - 1;
   }
   .helper__details-page_comment{
     @extend .clouds;
-    font-size : $font-size+1;
   }
   .helper__details-page_date{
     @extend .topography;
   }
   .helper__details-page_score{
     @extend .dominos;
+  }
+  .helper__details-page_related{
+
+    >div{
+      ul{
+        flex-grow: 1;
+      }
+      h4{
+        flex-grow: 0.5;
+      }
+    }
   }
 }

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { findFilm } from '../actions/apiActions';
 
-import EntityLink from '../components/EntityLink/EntityLink';
+import DumbList from '../components/DumbList/DumbList';
 
 class FilmsDetailsPage extends Component {
 
@@ -25,28 +25,24 @@ class FilmsDetailsPage extends Component {
           <p className="helper__details-page_date">Released : {film.release_date}</p>
           <p className="helper__details-page_score icons__rotten-tomato">Rotten Tomato score : {film.rt_score}</p>
           <div className="helper__details-page_related">
-            {
-              film.people ?
-              film.people.map((peopleLink, index) =>(<EntityLink key={index} entityLink={peopleLink} />))
-              :
-              null
-            }{
-              film.species ?
-              film.species.map((speciesLink, index) =>(<EntityLink key={index} entityLink={speciesLink} />))
-              :
-              null
-            }{
-              film.locations ?
-              film.locations.map((locationsLink, index) =>(<EntityLink key={index} entityLink={locationsLink} />))
-              :
-              null
-            }{
-              film.vehicles ?
-              film.vehicles.map((vehiclesLink, index) =>(<EntityLink key={index} entityLink={vehiclesLink} />))
-              :
-              null
-            }
+            <div>
+              <h4> People : </h4>
+              <DumbList entities={film.people} />
+            </div>
+            <div>
+              <h4> Species : </h4>
+              <DumbList entities={film.species} />
+            </div>
+            <div>
+              <h4> Locations : </h4>
+              <DumbList entities={film.locations} />
+            </div>
+            <div>
+              <h4> Vehicles : </h4>
+              <DumbList entities={film.vehicles} />
+            </div>
           </div>
+
         </div>
         :
         null

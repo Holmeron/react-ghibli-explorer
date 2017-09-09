@@ -32,10 +32,6 @@ export const findAllSpecies = () => ({
 export const findAllLocations = () => ({
   type: types.FIND_ALL_LOCATIONS
 });
-// find all terrains
-export const findAllTerrains = () => ({
-  type: types.FIND_ALL_TERRAINS
-});
 // find all people
 export const findAllPeople = () => ({
   type: types.FIND_ALL_PEOPLE

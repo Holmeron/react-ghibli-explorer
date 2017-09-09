@@ -18,7 +18,6 @@ export default (
       <Route path="people" component={PeoplePage} />
     <Route path="species" component={SpeciesPage} />
     <Route path="locations" component={LocationsPage} />
-    <Route path="terrain" component={TerrainsPage} />
     */}
   </Route>
 );
