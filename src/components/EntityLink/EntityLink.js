@@ -12,14 +12,9 @@ class EntityLink extends Component {
     this.props.dispatch(findEntityByUrl(entityLink));
   }
 
-  getUniqueId(){
-    const {entityLink} = this.props;
-    return apiService.getUniqueIdFromUrl(entityLink);
-  }
-
   render() {
-    const { baseEntity } = this.props;
-    const uniqueId = this.getUniqueId();
+    const { baseEntity, entityLink } = this.props;
+    const uniqueId = apiService.getUniqueIdFromUrl(entityLink);
     const entity = baseEntity[uniqueId];
     const link = uniqueId != 0 && entity ? `${uniqueId.split('-')[0]}/${entity.id}` : uniqueId;
     return (

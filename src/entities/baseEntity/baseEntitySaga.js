@@ -12,3 +12,13 @@ export function* findEntityByUrl(action) {
     yield put({ type: 'FIND_ENTITY_URL_ERROR', error });
   }
 }
+
+export function* findAll(action) {
+  try {
+    const entities = yield call(ghibliApi.findAll,action.entityType);
+    yield put({ type: types.FIND_ALL_SUCCESS, entities })
+  } catch (error) {
+    console.log(error);
+    yield put({ type: 'FIND_ALL_ERROR', error });
+  }
+}
