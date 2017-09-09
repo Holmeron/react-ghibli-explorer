@@ -18,7 +18,9 @@ const apiService = {
     }
   },
   getTypeFromUrl(url){
-    return url.split('/')[3];
+    console.log('url : ',url);
+    const type = url ? url.split('/')[3] : null;
+    return type;
   },
   getUrl(entity,id){
     return `${this.getEndpoint()}/${entity}/${id}`;
