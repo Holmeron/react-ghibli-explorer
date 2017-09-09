@@ -1,0 +1,51 @@
+.details-page{
+  $font-size : 3vw;
+  text-align: left;
+  color : $secondary-color;
+  font-size: $font-size;
+  h2,p, .details-page__related > div{
+    border: 2px solid grey;
+    border-radius: 10px;
+    margin: 1%;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .gb-icon{
+    flex-grow: .5;
+  }
+  h4{
+    font-size: $font-size;
+  }
+  .details-page__title{
+    @extend .leaves;
+    font-size: $font-size+1;
+    text-transform: uppercase;
+  }
+  .details-page__description{
+    @extend .temple;
+    font-size: $font-size - 1;
+  }
+  .details-page__comment{
+    @extend .clouds;
+  }
+  .details-page__date{
+    @extend .topography;
+  }
+  .details-page__score{
+    @extend .dominos;
+  }
+  .details-page__related{
+
+    >div{
+      ul{
+        flex-grow: 1;
+      }
+      h4{
+        flex-grow: 0.5;
+      }
+    }
+  }
+}

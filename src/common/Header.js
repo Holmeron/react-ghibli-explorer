@@ -12,15 +12,15 @@ const Header = () => (
               <span className="icon-bar"></span>
               <span className="icon-bar"></span>
             </button>
-            <a className="navbar-brand" href="#">Ghibli Explorer</a>
+          <Link to="/" className="navbar-brand">Ghibli Explorer</Link>
           </div>
           <div id="navbar" className="navbar-collapse collapse">
             <ul className="nav navbar-nav">
-              <li><Link to="films" activeClassName="active">Films</Link></li>
-              <li><Link to="people" activeClassName="active">People</Link></li>
-              <li><Link to="species" activeClassName="active">Species</Link></li>
-              <li><Link to="locations" activeClassName="active">Locations</Link></li>
-              <li><Link to="vehicles" activeClassName="active">Vehicles</Link></li>
+              <li><Link to="/films">Films</Link></li>
+              <li><Link to="/people">People</Link></li>
+              <li><Link to="/species">Species</Link></li>
+              <li><Link to="/locations">Locations</Link></li>
+              <li><Link to="/vehicles">Vehicles</Link></li>
             </ul>
             <ul className="nav navbar-nav navbar-right">
               <li><a href="./">Default <span className="sr-only">(current)</span></a></li>

@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router'
 
-require('./entityCard.scss');
-
 const EntityCard = ({name,link})=>(
   <div className="entity-card card">
     <img className="card-img-top" src="..." alt="Card image cap" />

@@ -17,14 +17,14 @@ class FilmsDetailsPage extends Component {
     return (
 
         film ?
-        <div className="helper__details-page film-details">
-          <h2 className="helper__details-page_title"><i className="gb-icon info-popup"></i>{film.title}</h2>
-          <p className="helper__details-page_description">{film.description}</p>
-          <p className="helper__details-page_comment"><i className="gb-icon comment"></i>Directed by : {film.director}</p>
-          <p className="helper__details-page_comment flex-reverse"><i className="gb-icon reverse comment"></i>Produced by : {film.producer}</p>
-          <p className="helper__details-page_date">Released : {film.release_date}</p>
-          <p className="helper__details-page_score icons__rotten-tomato">Rotten Tomato score : {film.rt_score}</p>
-          <div className="helper__details-page_related">
+        <div className="details-page film-details">
+          <h2 className="details-page__title"><i className="gb-icon info-popup"></i>{film.title}</h2>
+          <p className="details-page__description">{film.description}</p>
+          <p className="details-page__comment"><i className="gb-icon comment"></i>Directed by : {film.director}</p>
+          <p className="details-page__comment flex-reverse"><i className="gb-icon reverse comment"></i>Produced by : {film.producer}</p>
+          <p className="details-page__date">Released : {film.release_date}</p>
+          <p className="details-page__score icons__rotten-tomato">Rotten Tomato score : {film.rt_score}</p>
+          <div className="details-page__related">
             <div>
               <h4> People : </h4>
               <DumbList entities={film.people} />
