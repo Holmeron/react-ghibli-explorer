@@ -14,7 +14,6 @@ class FilmsPage extends Component {
    }
   render() {
     const { films } = this.props;
-    console.log('films : ',films);
 
     return (
       <div className="helper__flex-list">

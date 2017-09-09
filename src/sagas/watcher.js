@@ -1,4 +1,4 @@
-import { takeLatest } from 'redux-saga/effects';
+import { takeLatest, takeEvery } from 'redux-saga/effects';
 import * as types from '../actions/rootActionsTypes';
 
 import {findAllFilms} from '../entities/films/filmsSaga';
@@ -16,5 +16,5 @@ export function* watchFindAllVehicles() {
   yield takeLatest(types.FIND_ALL_VEHICLES, findAllVehicles);
 }
 export function* watchFindByUrl(url) {
-  yield takeLatest(types.FIND_ENTITY_URL, findEntityByUrl);
+  yield takeEvery(types.FIND_ENTITY_URL, findEntityByUrl);
 }

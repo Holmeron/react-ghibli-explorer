@@ -1,5 +1,6 @@
 import { put, call } from 'redux-saga/effects';
 import { ghibliApi } from '../../Api/GhibliApi';
+import { apiService } from '../../services/apiService';
 import * as types from '../../actions/rootActionsTypes';
 
 export function* findEntityByUrl(action) {
