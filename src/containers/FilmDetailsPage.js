@@ -23,26 +23,26 @@ class FilmsDetailsPage extends Component {
           <p className="helper__details-page_comment"><i className="gb-icon comment"></i>Directed by : {film.director}</p>
           <p className="helper__details-page_comment flex-reverse"><i className="gb-icon reverse comment"></i>Produced by : {film.producer}</p>
           <p className="helper__details-page_date">Released : {film.release_date}</p>
-          <p className="helper__details-page_score icons__rotten-tomato">Rottent Tomato score :{film.rt_score}</p>
+          <p className="helper__details-page_score icons__rotten-tomato">Rotten Tomato score : {film.rt_score}</p>
           <div className="helper__details-page_related">
             {
               film.people ?
-              films.people.map((peopleLink, index) =>(<EntityLink entityLink={film.people} />))
+              film.people.map((peopleLink, index) =>(<EntityLink key={index} entityLink={peopleLink} />))
               :
               null
             }{
               film.species ?
-              films.species.map((speciesLink, index) =>(<EntityLink entityLink={film.species} />))
+              film.species.map((speciesLink, index) =>(<EntityLink key={index} entityLink={speciesLink} />))
               :
               null
             }{
               film.locations ?
-              films.locations.map((locationsLink, index) =>(<EntityLink entityLink={film.locations} />))
+              film.locations.map((locationsLink, index) =>(<EntityLink key={index} entityLink={locationsLink} />))
               :
               null
             }{
               film.vehicles ?
-              films.vehicles.map((vehiclesLink, index) =>(<EntityLink entityLink={film.vehicles} />))
+              film.vehicles.map((vehiclesLink, index) =>(<EntityLink key={index} entityLink={vehiclesLink} />))
               :
               null
             }
