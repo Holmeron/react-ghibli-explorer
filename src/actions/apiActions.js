@@ -1,7 +1,7 @@
 import * as types from './rootActionsTypes';
 
-// find sentity by url
-export const findEntityFromUrl = (url) => ({
+// find entity by url
+export const findEntityByUrl = (url) => ({
   type: types.FIND_ENTITY_URL,
   url
 });
