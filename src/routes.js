@@ -12,5 +12,7 @@ export default (
     <IndexRoute component={Home} />
     <Route path="films" component={ListPage} entityType='films' />
     <Route path="films/:entityId" component={EntityDetailsPage} entityType='films' />
+    <Route path="people" component={ListPage} entityType='people' />
+    <Route path="people/:entityId" component={EntityDetailsPage} entityType='people' />
   </Route>
 );
