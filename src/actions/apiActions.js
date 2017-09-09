@@ -6,6 +6,12 @@ export const findEntityByUrl = (url) => ({
   url
 });
 
+// find all by entity type
+export const findAll = (entityType) => ({
+  type: types.FIND_ALL,
+  entityType
+});
+
 /** FILMS **/
 
 // find all films

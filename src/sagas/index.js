@@ -3,7 +3,8 @@ import {
   watchFindAllFilms,
   watchFindFilm,
   watchFindAllVehicles,
-  watchFindByUrl
+  watchFindByUrl,
+  watchFindAll
 } from './watcher';
 
 export default function* startForman() {
@@ -11,6 +12,7 @@ export default function* startForman() {
     fork(watchFindAllFilms),
     fork(watchFindFilm),
     fork(watchFindAllVehicles),
-    fork(watchFindByUrl)
+    fork(watchFindByUrl),
+    fork(watchFindAll)
   ];
 }

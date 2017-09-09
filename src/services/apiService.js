@@ -10,11 +10,14 @@ const apiService = {
   getUniqueIdFromUrl(url){
     if(this.isValidUrl(url)){
       const id = url.match(this.idRegex);
-      const entity = url.split('/')[3];
+      const entity = this.getTypeFromUrl(url);
       return `${entity}-${id}`;
     }else{
       return 0;
     }
+  },
+  getTypeFromUrl(url){
+    return url.split('/')[3];
   }
 }
 export default apiService;
