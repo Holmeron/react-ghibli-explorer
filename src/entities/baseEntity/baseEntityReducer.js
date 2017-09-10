@@ -9,7 +9,9 @@ export default function (state = initialState.baseEntity, action) {
       const uniqueId = apiService.getUniqueIdFromUrl(action.entity.url) ;
       return {...state, [uniqueId] : action.entity}
     case types.FIND_ALL_SUCCESS:
-      const entityType = apiService.getTypeFromUrl(action.entities[0].url) ;
+    // api inconsistency : url could be a string or an array :
+    const url = typeof action.entities[0].url === 'string' ? action.entities[0].url : action.entities[0].url[0];
+      const entityType = apiService.getTypeFromUrl(url) ;
       return {...state, [entityType] : action.entities}
     default:
       return state;
