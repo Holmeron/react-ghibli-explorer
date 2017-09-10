@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { findEntityByUrl } from '../actions/apiActions';
 import apiService from '../services/apiService';
 
-import DumbList from '../components/DumbList/DumbList';
+import EntityRow from '../components/EntityRow/EntityRow';
 
 class EntityDetailsPage extends Component {
 
@@ -22,7 +22,7 @@ class EntityDetailsPage extends Component {
         this.props.dispatch(findEntityByUrl(apiService.getUrl(entityType,entityId)));
       }
       else{
-        console.log('already exist : ',baseEntity[uniqueId]);
+        console.log(`already exist with uniqueID ${uniqueId} : ${baseEntity[uniqueId]}`);
       }
     }
   }
@@ -36,18 +36,20 @@ class EntityDetailsPage extends Component {
     let properties = [];
 
     for(let item in entity){
-      if (entity.hasOwnProperty(item)) {
-        const node = `${item} : ${entity[item]}`;
-        properties.push(node);
+      if (entity.hasOwnProperty(item) && item !== 'id') {
+        properties.push({
+          name : item,
+          value : entity[item]
+        });
       }
     }
 
-    const list = properties.map((item,index)=> <p key={index}>{item}</p>);
-
     return (
       entity ?
-          <div>
-          {list}
+          <div className="details-page">
+          {properties.map((property,index)=>
+              <EntityRow key={index} item={property} />
+          )}
           </div>
       :
       null

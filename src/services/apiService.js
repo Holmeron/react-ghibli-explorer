@@ -19,6 +19,7 @@ const apiService = {
     if(entity.species && !Array.isArray(entity.species)) validEntity.species = [ entity.species ];
     if(entity.vehicles && !Array.isArray(entity.vehicles)) validEntity.vehicles = [ entity.vehicles ];
     if(entity.people && !Array.isArray(entity.people)) validEntity.people = [ entity.people ];
+    if(entity.pilot && !Array.isArray(entity.pilot)) validEntity.pilot = [ entity.pilot ];
     if(entity.locations && !Array.isArray(entity.locations)) validEntity.locations = [ entity.locations ];
     if(entity.films && !Array.isArray(entity.films)) validEntity.films = [ entity.films ];
 
@@ -36,6 +37,7 @@ const apiService = {
     if(!Object.is(entity,validEntity)){
       console.log('Warning, API Inconsistency on entity ', entity);
     }
+    console.log('valid Entity', validEntity.name, validEntity.title, validEntity)
     return validEntity;
   },
 

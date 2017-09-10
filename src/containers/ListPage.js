@@ -13,8 +13,6 @@ class ListPage extends Component {
   componentDidUpdate(){
     const { entityType } = this.props.route;
     const { baseEntity } = this.props;
-console.log('update : ',entityType);
-console.log('update : ',baseEntity);
     if(!baseEntity[entityType] || baseEntity[entityType].length === 0)
      this.props.dispatch(findAll(entityType));
      else{
