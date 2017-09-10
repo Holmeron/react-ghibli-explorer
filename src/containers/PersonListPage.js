@@ -11,27 +11,40 @@ class PersonListPage extends Component {
 
  componentDidMount() {
    const { entityType } = this.props.route;
-    // this.props.dispatch(findAll(entityType));
+   const { baseEntity } = this.props;
+   if(!baseEntity[entityType] || baseEntity[entityType].length === 0){
+     // we need to fetch all films to get directors and producers in it, it will save films and persons in the state
+     this.props.dispatch(findAll('films'));
+    }
   }
-  componentDidUpdate(){
-    const { entityType } = this.props.route;
-    const { baseEntity } = this.props;
-    if(!baseEntity[entityType] || baseEntity[entityType].length === 0){
-      //  this.props.dispatch(findAll(entityType));
-     }
-   }
+
+  getPersonList(list){
+    let persons = [];
+    let i = 0;
+    for(let key in list){
+      if(list.hasOwnProperty(key)){
+        persons.push(<EntityCard name={list[key].name} link={`list[key]s/${list[key].name}`} text={list[key].type} key={i} />)
+        i++;
+      }
+    }
+    return persons;
+  }
 
   render() {
     const { baseEntity } = this.props;
     const { entityType } = this.props.route;
-    const entitiesList = baseEntity[entityType];
+    const list = baseEntity[entityType];
+    let personsList = null;
+    if(typeof list !== 'undefined'){
+      personsList = this.getPersonList(list);
+      console.log('res',personsList);
+    }
+
     return (
       <div className="helper__flex-list">
         {
-          entitiesList ?
-          entitiesList.map((entity, index) =>{
-            return(<p>{entity.name}</p>)
-          })
+          personsList ?
+          personsList.map((person, index) => person)
           :
           null
         }

@@ -18,8 +18,16 @@ export default function (state = initialState.baseEntity, action) {
     const url = typeof action.entities[0].url === 'string' ? action.entities[0].url : action.entities[0].url[0];
       const entityType = appService.getTypeFromUrl(url);
       let entities = action.entities
-      if(entityType === 'films') entities = appService.sortByProperty(action.entities, 'release_date')
-      return {...state, [entityType] : entities}
+      if(entityType === 'films'){
+          // sort films by release_date
+         entities = appService.sortByProperty(action.entities, 'release_date')
+          // store directors and producers in state
+          const persons = appService.ExtractPersonsFromFilms(entities);
+
+          return {...state, [entityType] : entities, persons}
+       }else{
+        return {...state, [entityType] : entities, persons}
+      }
     default:
       return state;
   }

@@ -29,7 +29,7 @@ export default (
     <Route path="vehicles" component={ListPage} entityType='vehicles' />
     <Route path="vehicles/:entityId" component={EntityDetailsPage} entityType='vehicles' />
 
-    <Route path="/person" component={PersonListPage} entityType='person' />
-    <Route path="person/:name" component={PersonDetailsPage} entityType='person' />
+    <Route path="/persons" component={PersonListPage} entityType='persons' />
+    <Route path="persons/:name" component={PersonDetailsPage} entityType='persons' />
   </Route>
 );

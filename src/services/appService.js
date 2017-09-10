@@ -71,6 +71,28 @@ const appService = {
     return data.sort((a,b)=> a[property] - b[property]);
   },
 
+  /**
+  * Extract directors and producers from film list
+  * return {Array}
+  */
+  ExtractPersonsFromFilms(films){
+    let persons = [];
+    // loop film list
+    for(let i=0;i<films.length;i++){
+      const currentFilm = films[i];
+      // loop properties of film
+      for(let key in currentFilm){
+        if(currentFilm.hasOwnProperty(key)){
+          const name = currentFilm[key];
+          if((key === 'producer' || key === 'director') && Object.values(persons).indexOf(key) === -1){
+            persons[name.replace(/ /g,'_')] = { name : name, type : key};
+          }
+        }
+      }
+    }
+    return persons;
+  },
+
   /*
   * get an url from an entity type and its id
   * return {String}
