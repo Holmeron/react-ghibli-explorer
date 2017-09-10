@@ -10,6 +10,15 @@ class ListPage extends Component {
    const { entityType } = this.props.route;
     this.props.dispatch(findAll(entityType));
   }
+  componentDidUpdate(){
+    const { entityType } = this.props.route;
+    const { baseEntity } = this.props;
+    if(!baseEntity[entityType] || baseEntity[entityType].length === 0)
+     this.props.dispatch(findAll(entityType));
+     else{
+       console.log('already exist : ',baseEntity[entityType]);
+     }
+   }
 
   render() {
     const { baseEntity } = this.props;

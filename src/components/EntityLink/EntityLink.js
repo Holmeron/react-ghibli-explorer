@@ -16,17 +16,18 @@ class EntityLink extends Component {
     const { baseEntity, entityLink } = this.props;
     const uniqueId = apiService.getUniqueIdFromUrl(entityLink);
     const entity = baseEntity[uniqueId];
-    const link = uniqueId != 0 && entity ? `${uniqueId.split('-')[0]}/${entity.id}` : uniqueId;
+    const link = uniqueId != 0 && entity ? `/${uniqueId.split('-')[0]}/${entity.id}` : uniqueId;
+    const name = entity ?
+                  entity.name ? entity.name : entity.title
+                  :
+                  null;
     return (
-      <div>
-      {
-        entity && entity.name ?
-        <p className="entity-link"><Link to={link}>{entity.name}</Link></p>
+      entity && name ?
+        <div>
+          <p className="entity-link"><Link to={link}>{name}</Link></p>
+        </div>
         :
-          <span><i className="gb-icon error-triangle"></i> None ! </span>
-      }
-      </div>
-
+        null
     )
   }
 }
