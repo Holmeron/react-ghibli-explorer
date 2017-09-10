@@ -36,5 +36,16 @@ export const ghibliApi = {
     }else{
       return 'Not found';
     }
+  },
+  /**
+  * get wikipedia page content
+  */
+  findWikipediaPageByName(name){
+    // return fetch(`${appService.getWikiPediaEndpoint()}/${name}`)
+    // .then(response => {
+    //   return response.json()
+    // })
+    // .catch((error)=>{
+    // });
   }
 }

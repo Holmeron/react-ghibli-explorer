@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { findEntityByUrl } from '../actions/apiActions';
+import { findWikipediaPageByName } from '../actions/apiActions';
 import appService from '../services/appService';
 
 class PersonDetailsPage extends Component {
 
  componentDidMount() {
    const { name } = this.props.params;
+   console.log('name : ',name);
    if(name) this.props.dispatch(findWikipediaPageByName(name));
   }
 

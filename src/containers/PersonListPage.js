@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { findAll } from '../actions/apiActions';
+import appService from '../services/appService';
 
 import EntityCard from '../components/EntityCard/EntityCard';
 
@@ -23,7 +24,8 @@ class PersonListPage extends Component {
     let i = 0;
     for(let key in list){
       if(list.hasOwnProperty(key)){
-        persons.push(<EntityCard name={list[key].name} link={`list[key]s/${list[key].name}`} text={list[key].type} key={i} />)
+        const linkName = appService.toSnakeCase(list[key].name);
+        persons.push(<EntityCard name={list[key].name} link={`/persons/${linkName}`} text={list[key].type} key={i} />)
         i++;
       }
     }

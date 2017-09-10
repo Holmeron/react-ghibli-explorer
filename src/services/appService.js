@@ -93,12 +93,29 @@ const appService = {
     return persons;
   },
 
+  /**
+  * scrape data from a wikipedia page
+  */
+  scrapContentFromWikipedia(pageContent){
+    return 'none';
+  },
+
   /*
   * get an url from an entity type and its id
   * return {String}
   */
   getUrl(entity,id){
     return `${this.getEndpoint()}/${entity}/${id}`;
+  },
+  toSnakeCase(name){
+    let words = name.split(' ');
+    words.map((word,index)=> word.charAt(0).toLowerCase()+words[index].slice(1));
+    return words.join('_');
+  },
+  unSnakeCase(name){
+    let words = name.split('_');
+    words.map((word,index)=> word.charAt(0).toUpperCase()+words[index].slice(1));
+    return words.join(' ');
   },
   getEndpoint(){
     return this.apiEndPoint;

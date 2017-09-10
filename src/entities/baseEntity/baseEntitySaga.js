@@ -28,3 +28,17 @@ export function* findAll(action) {
     yield put({ type: 'FIND_ALL_ERROR', error });
   }
 }
+
+/**
+* get wikipedia page content
+*/
+export function* getWikipediaPageContent(action) {
+  console.log('wiki : ',action);
+  try {
+    const pageContent = yield call(ghibliApi.findWikipediaPageByName,action.name);
+    yield put({ type: types.GET_WIKIPEDIA_CONTENT_SUCCESS, pageContent })
+  } catch (error) {
+    console.log(error);
+    yield put({ type: 'GET_WIKIPEDIA_CONTENT_ERROR', error });
+  }
+}
