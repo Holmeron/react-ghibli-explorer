@@ -1,5 +1,6 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import "~bootstrap-sass/assets/stylesheets/_bootstrap";
+@import './fonts.scss';
 
 // helper rules
 @import './colors.scss';
@@ -11,9 +12,13 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 
 // pages rules
 @import './pages/details-page';
+@import './pages/home-page';
 
 body{
-  @extend .cogs;
+  background-image: url('../../public/images/home_line.png');
+  background-size: 200px 96px;
+  background-color : $primary-color;
+  background-repeat: space;
   color : $secondary-color;
 }
 .navbar-default{
@@ -21,6 +26,8 @@ body{
   border: dashed 2px grey;
   color: white;
   border-style: dashed;
+  text-transform: uppercase;
+  font-family: Flux;
 }
 .flex-reverse{
   flex-direction: row-reverse;
