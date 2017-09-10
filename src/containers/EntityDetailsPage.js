@@ -12,6 +12,20 @@ class EntityDetailsPage extends Component {
    const { entityId } = this.props.params;
    if(entityId && entityType) this.props.dispatch(findEntityByUrl(apiService.getUrl(entityType,entityId)));
   }
+  componentDidUpdate() {
+    const { entityType } = this.props.params;
+    const { entityId } = this.props.route;
+    const { baseEntity } = this.props;
+    if(entityType && entityId){
+      const uniqueId = apiService.getUniqueIdFromUrl(apiService.getUrl(entityType,entityId));
+      if(!baseEntity[uniqueId] || baseEntity[uniqueId].length === 0){
+        this.props.dispatch(findEntityByUrl(apiService.getUrl(entityType,entityId)));
+      }
+      else{
+        console.log('already exist : ',baseEntity[uniqueId]);
+      }
+    }
+  }
 
   render() {
     const { baseEntity } = this.props;

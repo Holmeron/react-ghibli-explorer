@@ -18,7 +18,6 @@ const apiService = {
     }
   },
   getTypeFromUrl(url){
-    console.log('url : ',url);
     const type = url ? url.split('/')[3] : null;
     return type;
   },
