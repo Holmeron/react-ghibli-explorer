@@ -3,6 +3,9 @@ import * as types from '../../actions/rootActionsTypes';
 
 import apiService from '../../services/apiService';
 
+/**
+* react to the state dispatched by saga to resolves api calls responses
+*/
 export default function (state = initialState.baseEntity, action) {
   switch (action.type) {
     case types.FIND_ENTITY_URL_SUCCESS:
@@ -13,8 +16,10 @@ export default function (state = initialState.baseEntity, action) {
       return {...state, [uniqueId] : validEntity}
     case types.FIND_ALL_SUCCESS:
     const url = typeof action.entities[0].url === 'string' ? action.entities[0].url : action.entities[0].url[0];
-      const entityType = apiService.getTypeFromUrl(url) ;
-      return {...state, [entityType] : action.entities}
+      const entityType = apiService.getTypeFromUrl(url);
+      let entities = action.entities
+      if(entityType === 'films') entities = apiService.sortByProperty(action.entities, 'release_date')
+      return {...state, [entityType] : entities}
     default:
       return state;
   }

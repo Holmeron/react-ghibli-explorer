@@ -5,6 +5,9 @@ import { Link } from 'react-router'
 import { findEntityByUrl } from '../../actions/apiActions';
 import apiService from '../../services/apiService';
 
+/**
+* get an entity, store it in state and display a link towards its page
+*/
 class EntityLink extends Component {
 
  componentDidMount() {

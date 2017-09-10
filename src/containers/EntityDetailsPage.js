@@ -35,6 +35,7 @@ class EntityDetailsPage extends Component {
     const entity = baseEntity[uniqueId];
     let properties = [];
 
+    // get the name of a property and its value in an object
     for(let item in entity){
       if (entity.hasOwnProperty(item) && item !== 'id') {
         properties.push({

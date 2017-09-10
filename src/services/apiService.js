@@ -37,7 +37,6 @@ const apiService = {
     if(!Object.is(entity,validEntity)){
       console.log('Warning, API Inconsistency on entity ', entity);
     }
-    console.log('valid Entity', validEntity.name, validEntity.title, validEntity)
     return validEntity;
   },
 
@@ -62,6 +61,13 @@ const apiService = {
   getTypeFromUrl(url){
     const type = url ? url.split('/')[3] : null;
     return type;
+  },
+
+  /**
+  *
+  */
+  sortByProperty(data,property){
+    return data.sort((a,b)=> a[property] - b[property]);
   },
 
   /*

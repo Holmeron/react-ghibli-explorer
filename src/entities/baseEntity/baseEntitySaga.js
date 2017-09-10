@@ -3,6 +3,9 @@ import { ghibliApi } from '../../Api/GhibliApi';
 import { apiService } from '../../services/apiService';
 import * as types from '../../actions/rootActionsTypes';
 
+/**
+* get entity by its url and dispatch the result in a state with proper action name
+*/
 export function* findEntityByUrl(action) {
   try {
     const entity = yield call(ghibliApi.findbyUrl,action.url);
@@ -13,6 +16,9 @@ export function* findEntityByUrl(action) {
   }
 }
 
+/**
+* get all entities by type and dispatch the result in a state with proper action name
+*/
 export function* findAll(action) {
   try {
     const entities = yield call(ghibliApi.findAll,action.entityType);

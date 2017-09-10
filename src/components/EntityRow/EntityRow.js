@@ -3,6 +3,9 @@ import DumbList from '../DumbList/DumbList';
 
 import apiService from '../../services/apiService';
 
+/**
+* get an object {name, value} and assign the correct component
+*/
 class EntityRow extends Component {
 
  componentDidMount() {

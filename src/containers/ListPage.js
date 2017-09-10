@@ -4,6 +4,9 @@ import { findAll } from '../actions/apiActions';
 
 import EntityCard from '../components/EntityCard/EntityCard';
 
+/**
+* Component-Page to display the list of an entity's element
+*/
 class ListPage extends Component {
 
  componentDidMount() {
@@ -15,9 +18,6 @@ class ListPage extends Component {
     const { baseEntity } = this.props;
     if(!baseEntity[entityType] || baseEntity[entityType].length === 0)
      this.props.dispatch(findAll(entityType));
-     else{
-       console.log('already exist : ',baseEntity[entityType]);
-     }
    }
 
   render() {
@@ -29,7 +29,8 @@ class ListPage extends Component {
         {
           entitiesList ?
           entitiesList.map((entity, index) =>{
-            return(<EntityCard name={entity.name ? entity.name : entity.title} link={`${entityType}/${entity.id}`} key={index} />)
+            const text = entity.release_date ? entity.release_date : null;
+            return(<EntityCard name={entity.name ? entity.name : entity.title} link={`${entityType}/${entity.id}`} text={text} key={index} />)
           })
           :
           null

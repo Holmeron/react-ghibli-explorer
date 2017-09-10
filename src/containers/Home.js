@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-// Home page component. This serves as the welcome page with link to the library
+// Home page component
 const HomePage = () => (
   <div className="home-page jumbotron center">
     <h1 className="lead">Ghibli Explorer</h1>

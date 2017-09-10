@@ -1,10 +1,13 @@
 import React from 'react';
 import EntityLink from '../EntityLink/EntityLink';
 
+/**
+* list displaying link to entities
+*/
 const DumbList = ({entities})=>(
     entities ?
     (
-      <ul>
+      <ul className="dumb-list">
         {
           entities.map((link, index) =>
           (<li key={index}>
