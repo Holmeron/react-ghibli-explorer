@@ -1,6 +1,6 @@
-import apiService from '../services/apiService';
+import appService from '../services/appService';
 
-const API_ENDPOINT = apiService.getEndpoint();
+const API_ENDPOINT = appService.getEndpoint();
 
 // api methods
 export const ghibliApi = {
@@ -26,7 +26,7 @@ export const ghibliApi = {
   * get resource from url
   */
   findbyUrl(url){
-    if(apiService.isValidUrl(url)){
+    if(appService.isValidUrl(url)){
       return fetch(url)
       .then(response => {
         return response.json()

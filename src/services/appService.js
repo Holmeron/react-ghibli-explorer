@@ -1,4 +1,4 @@
-const apiService = {
+const appService = {
   apiEndPoint : 'https://ghibliapi.herokuapp.com',
   idRegex : /[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}/i,
 
@@ -81,4 +81,4 @@ const apiService = {
     return this.apiEndPoint;
   }
 }
-export default apiService;
+export default appService;

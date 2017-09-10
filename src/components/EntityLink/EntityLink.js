@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router'
 
 import { findEntityByUrl } from '../../actions/apiActions';
-import apiService from '../../services/apiService';
+import appService from '../../services/appService';
 
 /**
 * get an entity, store it in state and display a link towards its page
@@ -17,7 +17,7 @@ class EntityLink extends Component {
 
   render() {
     const { baseEntity, entityLink } = this.props;
-    const uniqueId = apiService.getUniqueIdFromUrl(entityLink);
+    const uniqueId = appService.getUniqueIdFromUrl(entityLink);
     const entity = baseEntity[uniqueId];
     const link = uniqueId != 0 && entity ? `/${uniqueId.split('-')[0]}/${entity.id}` : uniqueId;
     const name = entity ?

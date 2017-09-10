@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import DumbList from '../DumbList/DumbList';
 
-import apiService from '../../services/apiService';
+import appService from '../../services/appService';
 
 /**
 * get an object {name, value} and assign the correct component
@@ -15,7 +15,7 @@ class EntityRow extends Component {
   getProperComponent(item){
     const name = this.beautifyNames(item.name);
     // is url type
-    if(item.value.indexOf(apiService.getEndpoint()) > -1){
+    if(item.value.indexOf(appService.getEndpoint()) > -1){
       return <p className="details-page__url">{name} : <a href={item.value}>{item.value}</a></p>;
     }
     if(Array.isArray(item.value)){
