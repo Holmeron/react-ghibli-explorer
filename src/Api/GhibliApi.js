@@ -41,11 +41,21 @@ export const ghibliApi = {
   * get wikipedia page content
   */
   findWikipediaPageByName(name){
-    // return fetch(`${appService.getWikiPediaEndpoint()}/${name}`)
-    // .then(response => {
-    //   return response.json()
-    // })
-    // .catch((error)=>{
-    // });
+
+    let wikiHeaders = new Headers();
+    console.log(wikiHeaders.has('Origin'));
+
+    wikiHeaders.append('origin','*');
+    console.log(wikiHeaders.has('Origin'));
+
+    const init = { headers: wikiHeaders};
+    return fetch(`${appService.getWikiPediaEndpoint()}${name}`, init)
+    // return fetch(`https://en.wikipedia.org/w/api.php?action=query&format=json&prop=extracts&titles=${name}`, init)
+    .then(response => {
+      console.log('res ',response)
+      return response;
+    })
+    .catch((error)=>{
+    });
   }
 }

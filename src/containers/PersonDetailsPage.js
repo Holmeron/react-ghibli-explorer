@@ -7,8 +7,7 @@ class PersonDetailsPage extends Component {
 
  componentDidMount() {
    const { name } = this.props.params;
-   console.log('name : ',name);
-   if(name) this.props.dispatch(findWikipediaPageByName(name));
+  //  if(name) this.props.dispatch(findWikipediaPageByName(name));
   }
 
   render() {

@@ -30,6 +30,6 @@ export default (
     <Route path="vehicles/:entityId" component={EntityDetailsPage} entityType='vehicles' />
 
     <Route path="/persons" component={PersonListPage} entityType='persons' />
-    <Route path="persons/:name" component={PersonDetailsPage} entityType='persons' />
+    // <Route path="persons/:name" component={PersonDetailsPage} entityType='persons' />
   </Route>
 );

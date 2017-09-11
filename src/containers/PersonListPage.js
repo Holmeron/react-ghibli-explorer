@@ -39,7 +39,6 @@ class PersonListPage extends Component {
     let personsList = null;
     if(typeof list !== 'undefined'){
       personsList = this.getPersonList(list);
-      console.log('res',personsList);
     }
 
     return (
