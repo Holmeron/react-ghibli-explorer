@@ -1,0 +1,49 @@
+.home-page{
+  background-image: url("../../public/images/home.jpg");
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color : transparent;
+  height: 36vw;
+  width: 60vw;
+  min-width : 360px;
+  min-height: 216px;
+  margin:auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+  position: relative;
+  color: black;
+  margin-top: 5vh;
+  font-family: 'Flux';
+  color: black;
+  h1{
+    font-size: 4vw
+  }
+  button.btn{
+    &:hover{
+      mix-blend-mode: normal;
+    }
+    mix-blend-mode: color-burn;
+    display: flex;
+    align-items: center;
+    i{
+      margin-right: 10px;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .home-page{
+    h4{
+      font-size: 20px;
+    }
+    h1{
+      font-size: 32px;
+    }
+    .btn-lg{
+      font-size: 14px;
+    }
+  }
+}

@@ -1,0 +1,66 @@
+$icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
+@import "~bootstrap-sass/assets/stylesheets/_bootstrap";
+@import './fonts.scss';
+
+// helper rules
+@import './colors.scss';
+@import './icons.scss';
+@import './backgrounds.scss';
+
+// components rules
+@import './components/entityCard.scss';
+
+// pages rules
+@import './pages/details-page';
+@import './pages/home-page';
+
+body{
+  background-image: url('../../public/images/home_line.png');
+  background-size: 200px 96px;
+  background-color : $primary-color;
+  background-repeat: space;
+  color : $secondary-color;
+}
+.navbar-default{
+  background: rgba(200,200,250,.7);
+  border: dashed 2px grey;
+  color: white;
+  border-style: dashed;
+  text-transform: uppercase;
+  font-family: Flux;
+}
+.flex-reverse{
+  flex-direction: row-reverse;
+}
+ul{
+  list-style: none;
+  padding: 0;
+}
+.helper__flex-list{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  > div{
+    width: 15vw;
+    min-width: 125px;
+    border: 1px solid #ccc;
+    height: 150px;
+    margin: .5vw;
+  }
+}
+
+.person-list{
+  display: flex;
+  justify-content: space-around;
+  > div{
+    padding: 15px;
+    @extend .temple;
+    border: 2px dashed grey;
+    ul{
+      li{
+        text-transform: uppercase;
+        margin-bottom: 5px;
+      }
+    }
+  }
+}

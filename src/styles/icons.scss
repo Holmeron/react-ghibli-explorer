@@ -1,0 +1,106 @@
+
+.gb-icon{
+  position: relative;
+  width:50px;
+  height:50px;
+  display: inline-block;
+  vertical-align: text-bottom;
+  &::before{
+    content : ' ';
+    width:inherit;
+    height:inherit;
+    position: absolute;
+    left:0;
+    -webkit-background-size:100% 100%;
+    background-size:100% 100%;
+  }
+  &.reverse{
+    transform: scaleX(-1);
+    filter: FlipH;
+  }
+  &.approved{
+    &::before {
+      background-image: url("../../public/images/icons/approved.svg");
+    }
+  }
+  &.add-star{
+    &::before {
+      background-image: url("../../public/images/icons/add-star.svg");
+    }
+  }
+  &.file{
+    &::before {
+      background-image: url("../../public/images/icons/file.svg");
+    }
+  }
+  &.checked{
+    &::before {
+      background-image: url("../../public/images/icons/checked.svg");
+    }
+  }
+  &.close{
+    &::before {
+      background-image: url("../../public/images/icons/close.svg");
+    }
+  }
+  &.comment{
+    &::before {
+      background-image: url("../../public/images/icons/comment.svg");
+    }
+  }
+  &.error-triangle{
+  &::before {
+    background-image: url("../../public/images/icons/error-triangle.svg");
+  }
+}
+  &.error-diamond{
+    &::before {
+      background-image: url("../../public/images/icons/error-diamond.svg");
+    }
+  }
+  &.faq{
+    &::before {
+      background-image: url("../../public/images/icons/faq.svg");
+    }
+  }
+  &.help{
+    &::before {
+      background-image: url("../../public/images/icons/help.svg");
+    }
+  }
+  &.settings{
+    &::before {
+      background-image: url("../../public/images/icons/settings.svg");
+    }
+  }
+  &.info{
+    &::before {
+      background-image: url("../../public/images/icons/info.svg");
+    }
+  }
+  &.info-popup{
+    &::before {
+      background-image: url("../../public/images/icons/popup.svg");
+    }
+  }
+  &.menu{
+    &::before {
+      background-image: url("../../public/images/icons/menu.svg");
+    }
+  }
+  &.document{
+    &::before {
+      background-image: url("../../public/images/icons/document.svg");
+    }
+  }
+  &.list{
+    &::before {
+      background-image: url("../../public/images/icons/list.svg");
+    }
+  }
+  &.access-denied{
+    &::before {
+      background-image: url("../../public/images/icons/access-denied.svg");
+    }
+  }
+}

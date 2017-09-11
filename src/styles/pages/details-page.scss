@@ -1,0 +1,46 @@
+.details-page{
+  $font-size : 1em;
+  text-align: left;
+  color : $secondary-color;
+  font-size: $font-size;
+  h2,p, .details-page__related > div{
+    background-color: $primary-color;
+    border: 2px solid grey;
+    border-radius: 10px;
+    margin: 1%;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    white-space: nowrap;
+  }
+  h4{
+    font-size: $font-size;
+    white-space: nowrap;
+  }
+  .details-page__title,.details-page__name{
+    @extend .leaves;
+    font-size: $font-size;
+    text-transform: uppercase;
+  }
+  .details-page__description{
+    white-space: pre-wrap;
+  }
+  .details-page__url{
+    @extend .dominos;
+  }
+  .details-page__related{
+
+    >div{
+      .dumb-list{
+        display: flex;
+        flex-wrap: wrap;
+        li{
+          float: left;
+          white-space: nowrap;
+        }
+      }
+    }
+  }
+}
