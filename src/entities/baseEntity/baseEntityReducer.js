@@ -10,13 +10,15 @@ export default function (state = initialState.baseEntity, action) {
   switch (action.type) {
 
     case types.FIND_ENTITY_URL_SUCCESS:
-      const uniqueId = appService.getUniqueIdFromUrl(action.entity.url) ;
+    const entityUrl = typeof action.entity.url === 'string' ? action.entity.url : action.entity.url[0];
+      const uniqueId = appService.getUniqueIdFromUrl(entityUrl) ;
       const validEntity = appService.validateEntity(action.entity);
       return {...state, [uniqueId] : validEntity}
 
     case types.FIND_ALL_SUCCESS:
-      const entityType = appService.getTypeFromUrl(action.entities[0].url);
-      let entities = action.entities
+      const url = typeof action.entities[0].url === 'string' ? action.entities[0].url : action.entities[0].url[0];
+      const entityType = appService.getTypeFromUrl(url);
+      let entities = action.entities;
 
       if(entityType === 'films'){
           // sort films by release_date
@@ -26,7 +28,7 @@ export default function (state = initialState.baseEntity, action) {
 
           return {...state, [entityType] : entities, persons}
        }else{
-        return {...state, [entityType] : entities, persons}
+        return {...state, [entityType] : entities}
       }
 
       case types.GET_WIKIPEDIA_CONTENT_SUCCESS:

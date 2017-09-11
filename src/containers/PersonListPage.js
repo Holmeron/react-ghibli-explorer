@@ -19,13 +19,16 @@ class PersonListPage extends Component {
     }
   }
 
-  getPersonList(list){
+  getPersonList(list, type){
     let persons = [];
     let i = 0;
     for(let key in list){
       if(list.hasOwnProperty(key)){
         const linkName = appService.toSnakeCase(list[key].name);
-        persons.push(<EntityCard name={list[key].name} link={`/persons/${linkName}`} text={list[key].type} key={i} />)
+        if(list[key].type === type){
+          list[key].link = 'https://fr.wikipedia.org/wiki/'+linkName;
+          persons.push(list[key]);
+        }
         i++;
       }
     }
@@ -36,19 +39,37 @@ class PersonListPage extends Component {
     const { baseEntity } = this.props;
     const { entityType } = this.props.route;
     const list = baseEntity[entityType];
-    let personsList = null;
+    let producersList = null;
+    let directorsList = null;
     if(typeof list !== 'undefined'){
-      personsList = this.getPersonList(list);
+      producersList = this.getPersonList(list,'producer');
+      directorsList = this.getPersonList(list,'director');
     }
 
     return (
-      <div className="helper__flex-list">
-        {
-          personsList ?
-          personsList.map((person, index) => person)
-          :
-          null
-        }
+      <div className="person-list">
+        <div>
+          <h4>Producers</h4>
+          <ul>
+            {
+              producersList ?
+              producersList.map((person, index) => <li key={index}><a href={person.link} target="_blank">{person.name}</a></li>)
+              :
+              null
+            }
+          </ul>
+        </div>
+        <div>
+        <h4>Directors</h4>
+          <ul>
+            {
+              directorsList ?
+              directorsList.map((person, index) => <li key={index}><a href={person.link} target="_blank">{person.name}</a></li>)
+              :
+              null
+            }
+          </ul>
+        </div>
       </div>
     )
   }

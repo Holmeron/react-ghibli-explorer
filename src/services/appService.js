@@ -16,7 +16,7 @@ const appService = {
   */
   validateEntity(entity){
     let validEntity = entity;
-    if (Array.isArray(entity.url)) validEntity.url = [ entity.url ];
+    if (Array.isArray(entity.url)) validEntity.url = entity.url[0];
     if(entity.species && !Array.isArray(entity.species)) validEntity.species = [ entity.species ];
     if(entity.vehicles && !Array.isArray(entity.vehicles)) validEntity.vehicles = [ entity.vehicles ];
     if(entity.people && !Array.isArray(entity.people)) validEntity.people = [ entity.people ];

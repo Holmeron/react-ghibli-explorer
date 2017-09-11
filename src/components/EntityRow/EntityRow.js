@@ -22,10 +22,7 @@ class EntityRow extends Component {
       const entities = Array.isArray(item.value) ? item.value : [item.value];
       return <div className="details-page__related"><div><h4>{name} : </h4> <DumbList entities={entities} /></div></div>;
     }
-    if(name === 'name' || name === 'title'){
-      return <p className="details-page__title">{name} : {item.value}</p>;
-    }
-    return <p className="">{name} : {item.value}</p>;
+    return <p className={"details-page__"+name.toLowerCase()}>{name} : {item.value}</p>;
   }
 
   beautifyNames(name){
