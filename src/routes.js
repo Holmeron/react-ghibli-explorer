@@ -6,6 +6,9 @@ import Home from './containers/Home';
 import EntityDetailsPage from './containers/EntityDetailsPage';
 import ListPage from './containers/ListPage';
 
+import PersonListPage from './containers/PersonListPage';
+import PersonDetailsPage from './containers/PersonDetailsPage';
+
 
 export default (
   <Route path="/" component={App}>
@@ -25,5 +28,8 @@ export default (
 
     <Route path="vehicles" component={ListPage} entityType='vehicles' />
     <Route path="vehicles/:entityId" component={EntityDetailsPage} entityType='vehicles' />
+
+    <Route path="/persons" component={PersonListPage} entityType='persons' />
+    // <Route path="persons/:name" component={PersonDetailsPage} entityType='persons' />
   </Route>
 );

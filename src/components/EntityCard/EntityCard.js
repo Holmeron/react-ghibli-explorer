@@ -7,7 +7,7 @@ const EntityCard = ({name,link, text})=>(
       <h4 className="card-title">{name}</h4>
       {
         text ?
-        <p className="card-text">{text}</p>
+        <p className="entity-card__text card-text">{text}</p>
         :
         null
       }

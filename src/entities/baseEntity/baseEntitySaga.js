@@ -1,6 +1,6 @@
 import { put, call } from 'redux-saga/effects';
 import { ghibliApi } from '../../Api/GhibliApi';
-import { apiService } from '../../services/apiService';
+import { appService } from '../../services/appService';
 import * as types from '../../actions/rootActionsTypes';
 
 /**
@@ -26,5 +26,18 @@ export function* findAll(action) {
   } catch (error) {
     console.log(error);
     yield put({ type: 'FIND_ALL_ERROR', error });
+  }
+}
+
+/**
+* get wikipedia page content
+*/
+export function* getWikipediaPageContent(action) {
+  try {
+    const pageContent = yield call(ghibliApi.findWikipediaPageByName,action.name);
+    yield put({ type: types.GET_WIKIPEDIA_CONTENT_SUCCESS, pageContent })
+  } catch (error) {
+    console.log(error);
+    yield put({ type: 'GET_WIKIPEDIA_CONTENT_ERROR', error });
   }
 }

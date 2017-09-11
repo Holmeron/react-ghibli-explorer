@@ -21,11 +21,7 @@ const Header = () => (
               <li><Link to="/species">Species</Link></li>
               <li><Link to="/locations">Locations</Link></li>
               <li><Link to="/vehicles">Vehicles</Link></li>
-            </ul>
-            <ul className="nav navbar-nav navbar-right">
-              <li><a href="./">Default <span className="sr-only">(current)</span></a></li>
-              <li><a href="../navbar-static-top/">Static top</a></li>
-              <li><a href="../navbar-fixed-top/">Fixed top</a></li>
+              <li><Link to="/persons">Ghibli Staff</Link></li>
             </ul>
           </div>
         </div>

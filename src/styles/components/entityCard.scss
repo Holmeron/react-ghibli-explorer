@@ -3,4 +3,14 @@
   width: 15vw;
   border: 1px solid #ccc;
   @extend .clouds;
+  .entity-card__body{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+  }
+  .entity-card__text{
+    font-size: 1.5em;
+  }
 }

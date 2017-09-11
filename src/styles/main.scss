@@ -48,12 +48,19 @@ ul{
     margin: .5vw;
   }
 }
-.entity-card{
-  .entity-card__body{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    height: 100%;
+
+.person-list{
+  display: flex;
+  justify-content: space-around;
+  > div{
+    padding: 15px;
+    @extend .temple;
+    border: 2px dashed grey;
+    ul{
+      li{
+        text-transform: uppercase;
+        margin-bottom: 5px;
+      }
+    }
   }
 }

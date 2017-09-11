@@ -11,3 +11,8 @@ export const findAll = (entityType) => ({
   type: types.FIND_ALL,
   entityType
 });
+// get wiki page content
+export const findWikipediaPageByName = (name) => ({
+  type: types.GET_WIKIPEDIA_CONTENT,
+  name
+});
