@@ -1,6 +1,6 @@
 {
   "name": "react-ghibli-explorer",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
     "babel-preset-stage-2": "^6.24.1",
